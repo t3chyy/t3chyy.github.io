@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on t3chyy.cc</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on t3chyy.cc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 20 Jan 2025 23:47:22 -0600</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>THM - Light</title>
+      <link>http://localhost:1313/blog/thm-light/</link>
+      <pubDate>Mon, 20 Jan 2025 23:47:22 -0600</pubDate>
+      
+      <guid>http://localhost:1313/blog/thm-light/</guid>
+      
+      <description>&lt;p&gt;&lt;em&gt;Room description -&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to the Light database application!&lt;/p&gt;
+&lt;p&gt;I am working on a database application called Light! Would you like to try it out?&lt;br&gt;
+If so, the application is running on &lt;strong&gt;port 1337&lt;/strong&gt;. You can connect to it using &lt;code&gt;nc 10.10.117.102 1337&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can use the username &lt;code&gt;smokey&lt;/code&gt; in order to get started!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kudos to the room creators - hadrian3689, tryhackme&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Writeup written by T3chyy&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h1&gt;
+&lt;p&gt;We begin with an Nmap scan, now this probably wasn&amp;rsquo;t needed since we&amp;rsquo;re already provided with port &lt;code&gt;1337&lt;/code&gt; to begin testing with, however it&amp;rsquo;s always important to check for anything else on the box so we don&amp;rsquo;t miss anything:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>THM - Brains</title>
+      <link>http://localhost:1313/blog/thm-brains/</link>
+      <pubDate>Sun, 08 Dec 2024 01:45:47 -0600</pubDate>
+      
+      <guid>http://localhost:1313/blog/thm-brains/</guid>
+      
+      <description>&lt;p&gt;&lt;em&gt;Room description -&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The city forgot to close it&amp;rsquo;s gate!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kudos to the room creators - Dex01, strategos &amp;amp; l000g1c&lt;/em&gt;
+&lt;em&gt;Writeup written by T3chyy&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;red-exploit-the-server&#34;&gt;Red: Exploit the Server!&lt;/h1&gt;
+&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;
+&lt;p&gt;We start off with an Nmap scan and we find 3 ports open, 22 (SSH), 80 and 50000.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/thm-brains/1.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;port-80&#34;&gt;Port 80&lt;/h3&gt;
+&lt;p&gt;When we go to Port 80, we get a down for maintenance page. Usually when I see this I begin performing enumeration on the directories. Unfortunately, I couldn&amp;rsquo;t find any extra directories. There&amp;rsquo;s also nothing interesting in the source code either, so we move onto another port.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      
+      <description>&lt;img src=&#34;../test.png&#34; style=&#34;width:200px; margin-right: auto; margin-left: auto; display: block;&#34;/&gt;
+&lt;p&gt;Greetings fellow internet traveller! I&amp;rsquo;m t3chyy, I&amp;rsquo;m an 18 year old cybersecurity enthusiast interested in penetration testing &amp;amp; occassional malware development. I also dabble around in other things, including EAS &amp;amp; NOAA weather radios, programming, and gaming.&lt;/p&gt;
+&lt;p&gt;When I&amp;rsquo;m not on the computer, I like to go bowling and hang out with my family (appreciate your family guys)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/anuraghazra/github-readme-stats&#34;&gt;&lt;img src=&#34;https://github-readme-stats.vercel.app/api/top-langs/?username=t3chyy&amp;amp;langs_count=50&amp;amp;layout=compact&amp;amp;theme=dark&#34; alt=&#34;Top Langs&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/anuraghazra/github-readme-stats&#34;&gt;&lt;img src=&#34;https://github-readme-stats.vercel.app/api?username=t3chyy&amp;amp;show_icons=true&amp;amp;theme=dark&#34; alt=&#34;GitHub stats&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;coding-projects&#34;&gt;Coding Projects&lt;/h1&gt;
+&lt;p&gt;Here are some projects I&amp;rsquo;ve made over the years, most of them are incredibly random ideas or just stuff I made for the hell of it. Check them out!&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Donate</title>
+      <link>http://localhost:1313/donate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/donate/</guid>
+      
+      <description>&lt;p&gt;A mass majority of things I do are done passionately, with no cost to you. If you would like to support my work, send a donation! any amount is greatly appreciated!
+Only donate if you have the spare funds to do so, keep that money if you need it, it&amp;rsquo;s rough out there.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x2615; &lt;strong&gt;Ko-Fi Coming Soon&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;coin-cryptocurrency&#34;&gt;&amp;#x1fa99; Cryptocurrency&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Coin&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;Address&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Monero/XMR&lt;/strong&gt; (recommended)&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;8AvU2ez22CDL5aTFhFVMQi4vKfD9dtoqeZ4S8BnfskdNXdTAEZm3yzVZXjnTKmrrETdc2FzuSrKPyAUnJd33MMRR9zDwJpg&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Bitcoin/BTC&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;1skidsmxYAVq2DkY9aJkMHKwJsq55E7k7&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ethereum/ETH&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;0xb50E3Ec6B9808689A3FC0b565f2F1B6dBf86725a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Litecoin/LTC&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;LZwo79DBGaBxW3oTKYdXBZ9DJseHvEbH7t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Dogecoin/DOGE&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;D9UKWWcdRo9iZJxREuZPUtJe9dFWYWqQTE&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

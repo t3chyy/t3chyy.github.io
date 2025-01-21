@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on t3chyy.cc</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blog on t3chyy.cc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 20 Jan 2025 23:47:22 -0600</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>THM - Light</title>
+      <link>http://localhost:1313/blog/thm-light/</link>
+      <pubDate>Mon, 20 Jan 2025 23:47:22 -0600</pubDate>
+      
+      <guid>http://localhost:1313/blog/thm-light/</guid>
+      
+      <description>&lt;p&gt;&lt;em&gt;Room description -&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to the Light database application!&lt;/p&gt;
+&lt;p&gt;I am working on a database application called Light! Would you like to try it out?&lt;br&gt;
+If so, the application is running on &lt;strong&gt;port 1337&lt;/strong&gt;. You can connect to it using &lt;code&gt;nc 10.10.117.102 1337&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can use the username &lt;code&gt;smokey&lt;/code&gt; in order to get started!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kudos to the room creators - hadrian3689, tryhackme&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Writeup written by T3chyy&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h1&gt;
+&lt;p&gt;We begin with an Nmap scan, now this probably wasn&amp;rsquo;t needed since we&amp;rsquo;re already provided with port &lt;code&gt;1337&lt;/code&gt; to begin testing with, however it&amp;rsquo;s always important to check for anything else on the box so we don&amp;rsquo;t miss anything:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>THM - Brains</title>
+      <link>http://localhost:1313/blog/thm-brains/</link>
+      <pubDate>Sun, 08 Dec 2024 01:45:47 -0600</pubDate>
+      
+      <guid>http://localhost:1313/blog/thm-brains/</guid>
+      
+      <description>&lt;p&gt;&lt;em&gt;Room description -&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The city forgot to close it&amp;rsquo;s gate!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kudos to the room creators - Dex01, strategos &amp;amp; l000g1c&lt;/em&gt;
+&lt;em&gt;Writeup written by T3chyy&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;red-exploit-the-server&#34;&gt;Red: Exploit the Server!&lt;/h1&gt;
+&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;
+&lt;p&gt;We start off with an Nmap scan and we find 3 ports open, 22 (SSH), 80 and 50000.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/thm-brains/1.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;port-80&#34;&gt;Port 80&lt;/h3&gt;
+&lt;p&gt;When we go to Port 80, we get a down for maintenance page. Usually when I see this I begin performing enumeration on the directories. Unfortunately, I couldn&amp;rsquo;t find any extra directories. There&amp;rsquo;s also nothing interesting in the source code either, so we move onto another port.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
