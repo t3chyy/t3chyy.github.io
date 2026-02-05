@@ -4,10 +4,10 @@ date: 2025-01-20T23:47:22-06:00
 draft: false
 description:
 isStarred: false
-toc: false
+toc: true
 ---
 
-*Room description -*
+**--- Room Description ---**
 
 Welcome to the Light database application!
 
@@ -19,6 +19,9 @@ You can use the username `smokey` in order to get started!
 *Kudos to the room creators - hadrian3689, tryhackme*
 
 *Writeup written by T3chyy*
+
+**---**
+
 # Enumeration
 
 We begin with an Nmap scan, now this probably wasn't needed since we're already provided with port `1337` to begin testing with, however it's always important to check for anything else on the box so we don't miss anything:
@@ -54,9 +57,11 @@ Nmap done: 1 IP address (1 host up) scanned in 544.34 seconds
 
 Besides the initial 1337 port we were given, we only have an SSH server open, which I'll keep in note in case we find any credentials down the line. (**Spoiler Alert: We don't**)
 
+## Port 1337
+
 However we can access the 1337 port using netcat. It looks to be some sort of database application. When we put the username we were provided with in the description of the room it gives us a password:
 
-![Image](1.png)
+![Image](/images/thm-light/1.png)
 
 At first, I took this password and the username `smokey` and attempted to log into SSH with them, unfortunately, these credentials didn't serve any use so I decided to move on.
 
@@ -139,58 +144,64 @@ alice:tF8tj2o94WE4LKC
 ```
 # Exploitation
 
+
 I had to find other options in order to find the correct path. I was stuck at this point for a while so I resorted to just spamming random special characters, mostly out of frustration and hoping something will happen. 
 
 Well, turns out my character mashing was worth it because when I put an `'` it printed out an error:
 
-![Image](2.png)
+![Image](/images/thm-light/2.png)
 
 This error looked incredibly similar to that of a SQL query, and considering that it's a database application I decided to start googling SQL injection payloads and cheat sheets
 
 I started off with MySQL payloads, beginning with things like `SELECT * FROM information_schema.tables` but it didn't seem to like the SELECT statement being used
 
-![Image](3.png)
+![Image](/images/thm-light/3.png)
 
 Same thing occurred when using UNION. There seems to be a filter in place preventing certain SQL commands from being used.
 
 When testing another payload, I discover that there's another filter in place, preventing any comments from being used in the query.
 
-![Image](4.png)
+![Image](/images/thm-light/4.png)
 
 One of the first things I checked is whether or not the filter for SELECT & UNION statements were case sensitive, it didn't seem to work with it being all lowercase, however putting at least one capital letter in the statement (or vice versa) seems to bypass the filter.
 
-![Image](5.png)
+![Image](/images/thm-light/5.png)
 
 After about an hour of playing around with MySQL payloads with no success, I had to rethink about what kind of SQL that the box could be using. I then remembered the name of the room:
 
 Light, potentially could mean SQ**Lite**?
 
 So I began searching for payloads that would work for SQLite, and after playing around with the payloads a bit, I finally managed to begin cooking!
-### Extracting the table name:
+
+## Extracting the table name:
+
 `smokey'Union Select tbl_name FROM sqlite_master WHERE type='table`
-![Image](6.png)
-### Extracting the columns from admintable:
+![Image](/images/thm-light/6.png)
+
+## Extracting the columns from admintable:
+
 `smokey'Union Select sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='admintable`
-![Image](7.png)
+![Image](/images/thm-light/7.png)
 Columns in admintable are "username" and "password"
-### Extracting username & password from admintable
+
+## Extracting username & password from admintable
 
 Extract username - `smokey'Union Select username FROM 'admintable`
 
 Extract password - `smokey'Union Select password FROM 'admintable`
 
-![Image](8.png)
+![Image](/images/thm-light/8.png)
 
 These 2 payloads should help solve the 1st and 3rd question.
 
-### Extracting the password of the admin user
+## Extracting the password of the admin user
 
 `smokey'Union Select password FROM 'admintable' WHERE username == 'INSERT_ADMIN_USER`
 
-![Image](9.png)
+![Image](/images/thm-light/9.png)
 
 This final payload should answer the 2nd question, and thus, you've completed the box! Congrats!
 
-## Conclusion
+# Conclusion
 
 That was a pretty cool box, I took a small break from CTFs after a while and it gave me a really good refresher on some concepts, especially with SQL injection. The room was quite challenging in terms of getting the correct payload, but once I remembered the name of the room I started cooking from there.

@@ -43,7 +43,7 @@ theme = "hugo-blog-awesome"
   [markup.goldmark.renderer]
     unsafe = true
 	[markup.tableOfContents]
-		startLevel = 2 # ToC starts from H2
+		startLevel = 1 # ToC starts from H2
 		endLevel = 4 # ToC ends at H4
 		ordered = false # generates <ul> instead of <ol>
 
@@ -84,10 +84,10 @@ theme = "hugo-blog-awesome"
   # Setting it to 'auto' applies the color scheme based on the visitor's device color preference.If you don't specify anything, ignore this parameter, or leave it blank,
   # the default value is set to 'auto'.
   # You can take a look at layouts/index.html for more information.
-  description = "Minimal Hugo blog theme with light and dark mode support"
+  description = "The personal website/blog of t3chyy"
   mainSections = ['blog']
-  toc = false # set to false to disable table of contents 'globally'
-  tocOpen = false # set to true to open table of contents by default
+  toc = true # set to false to disable table of contents 'globally'
+  tocOpen = true # set to true to open table of contents by default
   goToTop = true # set to false to disable 'go to top' button
   additionalScripts = ['js/custom.js', 'js/custom-2.js']
   # Will try to load 'assets/js/custom.js' and 'assets/js/custom-2.js'.
@@ -106,7 +106,7 @@ theme = "hugo-blog-awesome"
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
   intro = "t3chyy.cc"
   name = "t3chyy"
-  description = "Howdy, welcome to my website/blog thingy! This is where I post most of my cool shit, mostly CTF writeups."
+  description = "Hello nerd, welcome to my website! :D"
 
 # Allow to override webmanifest options
 [Languages.en-gb.params.webmanifest]
@@ -147,7 +147,7 @@ url = "https://app.hackthebox.com/users/1331257"
 
 [[params.socialIcons]]
 name = "email"
-url = "mailto:skid@420blaze.it"
+url = "mailto:t3chyy@waifu.club"
 
 [[params.socialIcons]]
 name = "key"

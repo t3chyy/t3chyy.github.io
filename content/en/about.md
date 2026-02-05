@@ -2,16 +2,14 @@
 title: About
 description: About Me
 author: t3chyy
+toc: false
 ---
 
-<img src="../test.png" style="width:200px; margin-right: auto; margin-left: auto; display: block;"/>
+<img src="/images/test.png" style="width:200px; margin-right: auto; margin-left: auto; display: block;"/>
 
-Greetings fellow internet traveller! I'm t3chyy, I'm an 18 year old cybersecurity enthusiast interested in penetration testing & occassional malware development. I also dabble around in other things, including EAS & NOAA weather radios, programming, and gaming.
+Greetings fellow internet traveller! I'm t3chyy, I'm a 19 year old cybersecurity enthusiast interested in penetration testing & occassional malware analysis. I also dabble around in other things, including EAS & NOAA weather radios, programming, and gaming.
 
 When I'm not on the computer, I like to go bowling and hang out with my family (appreciate your family guys)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=t3chyy&langs_count=50&layout=compact&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=t3chyy&show_icons=true&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
 
 # Coding Projects
 
@@ -19,12 +17,12 @@ Here are some projects I've made over the years, most of them are incredibly ran
 
 | Icon | Year | Name | Description | 
 | :------------------- | :---------- | :----------- | :----------- |
-| <img src="../wxmod.png" style="width:150px;"/> | 2022 | **The Weather Radio Mod** | A Minecraft mod that adds a various selection of NOAA weather radios in-game. Anyone involved in the EAS/WX niche can now enjoy the satisfaction of being able to collect, obtain & own rare weather radios in the world of Minecraft! |
-| <img src="../stringgen.png" style="width:150px;"/>| 2021 | **StringGen** | A very simple random string generator written in C#, uses your own compute for string generation so there's no quota limit (fuck random.org) |
-| <img src="../blizzard.png" style="width:150px;"/>| 2020 | **Blizzard** | An old Lua executor for Roblox, with the help of the old WeAreDevs API, it allowed you to execute Lua scripts onto the Roblox game client. These types of programs were commonly used to cheat/"exploit" in Roblox. **This program is no longer maintained because I no longer condone cheating in children's games.** |
-|<img src="../t3chyybot.png" style="width:150px;"/>| 2020 | **T3chyy Bot** | A Discord bot written in JavaScript with exclusive moderation, weather, and music features designed for use in my old Discord server. Notable commands me & others had fun with included t!roast, t!alertmap (which gave weather.gov information for a specified area), t!say and t!hack. **As stated before, the discord server is old and no longer active, and as such, this bot is no longer maintained.**
-|<img src="../impons.jpeg" style="width:150px;"/>| 2018 | **Imp-Ons** | An addon to MrCrayfish's Device Mod. It contained a Document Writer, Antivirus, and at one point, a bank app. This mod was never finished, and the Device Mod stopped receiving updates years later. **No longer maintained** |
-|<img src="../sunkistingot.png" style="width:150px;"/> | 2018  | **Techyy's Sunkist Mod** | My very first coding project that I managed to finish and release to the public, I was only 11 years old. This Minecraft mod added blocks and items related to the Sunkist soda drink, including swords & axes. Although there were crafting recipes for the tools, there wasn't any way to obtain ingots in survival mode in order to craft them. **No longer maintained**|
+| <img src="/images/wxmod.png" style="width:150px;"/> | 2022 | **The Weather Radio Mod** | A Minecraft mod that adds a various selection of NOAA weather radios in-game. Anyone involved in the EAS/WX niche can now enjoy the satisfaction of being able to collect, obtain & own rare weather radios in the world of Minecraft! |
+| <img src="/images/stringgen.png" style="width:150px;"/>| 2021 | **StringGen** | A very simple random string generator written in C#, uses your own compute for string generation so there's no quota limit (fuck random.org) |
+| <img src="/images/blizzard.png" style="width:150px;"/>| 2020 | **Blizzard** | An old Lua executor for Roblox, with the help of the old WeAreDevs API, it allowed you to execute Lua scripts onto the Roblox game client. These types of programs were commonly used to cheat/"exploit" in Roblox. **This program is no longer maintained because I no longer condone cheating in children's games.** |
+|<img src="/images/t3chyybot.png" style="width:150px;"/>| 2020 | **T3chyy Bot** | A Discord bot written in JavaScript with exclusive moderation, weather, and music features designed for use in my old Discord server. Notable commands me & others had fun with included t!roast, t!alertmap (which gave weather.gov information for a specified area), t!say and t!hack. **As stated before, the discord server is old and no longer active, and as such, this bot is no longer maintained.**
+|<img src="/images/impons.jpeg" style="width:150px;"/>| 2018 | **Imp-Ons** | An addon to MrCrayfish's Device Mod. It contained a Document Writer, Antivirus, and at one point, a bank app. This mod was never finished, and the Device Mod stopped receiving updates years later. **No longer maintained** |
+|<img src="/images/sunkistingot.png" style="width:150px;"/> | 2018  | **Techyy's Sunkist Mod** | My very first coding project that I managed to finish and release to the public, I was only 11 years old. This Minecraft mod added blocks and items related to the Sunkist soda drink, including swords & axes. Although there were crafting recipes for the tools, there wasn't any way to obtain ingots in survival mode in order to craft them. **No longer maintained**|
 
 # :warning: WALL OF CRINGEWARE :warning:
 

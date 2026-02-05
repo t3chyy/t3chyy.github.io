@@ -10,10 +10,10 @@
 <meta name="application-name" content="THM - Light | t3chyy.cc" />
 <meta property="og:site_name" content="t3chyycc" />
 
-<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
-<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
-<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
-<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="description" content="The personal website/blog of t3chyy">
+<meta itemprop="description" content="The personal website/blog of t3chyy" />
+<meta property="og:description" content="The personal website/blog of t3chyy" />
+<meta name="twitter:description" content="The personal website/blog of t3chyy" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -25,19 +25,20 @@
 
 
 
-<meta name="generator" content="Hugo 0.141.0">
+<meta name="generator" content="Hugo 0.154.5">
 
     
     <meta property="og:url" content="http://localhost:1313/blog/thm-light/">
   <meta property="og:site_name" content="t3chyy.cc">
   <meta property="og:title" content="THM - Light">
-  <meta property="og:description" content="Room description -
+  <meta property="og:description" content="— Room Description —
 Welcome to the Light database application!
 I am working on a database application called Light! Would you like to try it out?
 If so, the application is running on port 1337. You can connect to it using nc 10.10.117.102 1337
 You can use the username smokey in order to get started!
 Kudos to the room creators - hadrian3689, tryhackme
 Writeup written by T3chyy
+—
 Enumeration We begin with an Nmap scan, now this probably wasn’t needed since we’re already provided with port 1337 to begin testing with, however it’s always important to check for anything else on the box so we don’t miss anything:">
   <meta property="og:locale" content="en_gb">
   <meta property="og:type" content="article">
@@ -50,13 +51,14 @@ Enumeration We begin with an Nmap scan, now this probably wasn’t needed since 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="THM - Light">
-  <meta name="twitter:description" content="Room description -
+  <meta name="twitter:description" content="— Room Description —
 Welcome to the Light database application!
 I am working on a database application called Light! Would you like to try it out?
 If so, the application is running on port 1337. You can connect to it using nc 10.10.117.102 1337
 You can use the username smokey in order to get started!
 Kudos to the room creators - hadrian3689, tryhackme
 Writeup written by T3chyy
+—
 Enumeration We begin with an Nmap scan, now this probably wasn’t needed since we’re already provided with port 1337 to begin testing with, however it’s always important to check for anything else on the box so we don’t miss anything:">
 
 
@@ -172,14 +174,41 @@ stroke-linejoin="round" class="feather feather-home">
                 
             </header>
             
+    
+        
+            
+        
+    
+    <details class="toc" open>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#enumeration">Enumeration</a>
+      <ul>
+        <li><a href="#port-1337">Port 1337</a></li>
+      </ul>
+    </li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#extracting-the-table-name">Extracting the table name:</a></li>
+        <li><a href="#extracting-the-columns-from-admintable">Extracting the columns from admintable:</a></li>
+        <li><a href="#extracting-username--password-from-admintable">Extracting username &amp; password from admintable</a></li>
+        <li><a href="#extracting-the-password-of-the-admin-user">Extracting the password of the admin user</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </details>
             <div class="page-content">
-                <p><em>Room description -</em></p>
+                <p><strong>&mdash; Room Description &mdash;</strong></p>
 <p>Welcome to the Light database application!</p>
 <p>I am working on a database application called Light! Would you like to try it out?<br>
 If so, the application is running on <strong>port 1337</strong>. You can connect to it using <code>nc 10.10.117.102 1337</code></p>
 <p>You can use the username <code>smokey</code> in order to get started!</p>
 <p><em>Kudos to the room creators - hadrian3689, tryhackme</em></p>
 <p><em>Writeup written by T3chyy</em></p>
+<p><strong>&mdash;</strong></p>
 <h1 id="enumeration">Enumeration</h1>
 <p>We begin with an Nmap scan, now this probably wasn&rsquo;t needed since we&rsquo;re already provided with port <code>1337</code> to begin testing with, however it&rsquo;s always important to check for anything else on the box so we don&rsquo;t miss anything:</p>
 <pre tabindex="0"><code>$ nmap -T5 -sC -sV -p- 10.10.116.179
@@ -209,8 +238,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 544.34 seconds
 </code></pre><p>Besides the initial 1337 port we were given, we only have an SSH server open, which I&rsquo;ll keep in note in case we find any credentials down the line. (<strong>Spoiler Alert: We don&rsquo;t</strong>)</p>
+<h2 id="port-1337">Port 1337</h2>
 <p>However we can access the 1337 port using netcat. It looks to be some sort of database application. When we put the username we were provided with in the description of the room it gives us a password:</p>
-<p><img src="/blog/thm-light/1.png" alt="Image"></p>
+<p><img src="/images/thm-light/1.png" alt="Image"></p>
 <p>At first, I took this password and the username <code>smokey</code> and attempted to log into SSH with them, unfortunately, these credentials didn&rsquo;t serve any use so I decided to move on.</p>
 <p>I assumed there were more accounts so I asked Grok to generate a simple Python script that brute-forces usernames in a wordlist.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
@@ -285,35 +315,35 @@ alice:tF8tj2o94WE4LKC
 </code></pre><h1 id="exploitation">Exploitation</h1>
 <p>I had to find other options in order to find the correct path. I was stuck at this point for a while so I resorted to just spamming random special characters, mostly out of frustration and hoping something will happen.</p>
 <p>Well, turns out my character mashing was worth it because when I put an <code>'</code> it printed out an error:</p>
-<p><img src="/blog/thm-light/2.png" alt="Image"></p>
+<p><img src="/images/thm-light/2.png" alt="Image"></p>
 <p>This error looked incredibly similar to that of a SQL query, and considering that it&rsquo;s a database application I decided to start googling SQL injection payloads and cheat sheets</p>
 <p>I started off with MySQL payloads, beginning with things like <code>SELECT * FROM information_schema.tables</code> but it didn&rsquo;t seem to like the SELECT statement being used</p>
-<p><img src="/blog/thm-light/3.png" alt="Image"></p>
+<p><img src="/images/thm-light/3.png" alt="Image"></p>
 <p>Same thing occurred when using UNION. There seems to be a filter in place preventing certain SQL commands from being used.</p>
 <p>When testing another payload, I discover that there&rsquo;s another filter in place, preventing any comments from being used in the query.</p>
-<p><img src="/blog/thm-light/4.png" alt="Image"></p>
+<p><img src="/images/thm-light/4.png" alt="Image"></p>
 <p>One of the first things I checked is whether or not the filter for SELECT &amp; UNION statements were case sensitive, it didn&rsquo;t seem to work with it being all lowercase, however putting at least one capital letter in the statement (or vice versa) seems to bypass the filter.</p>
-<p><img src="/blog/thm-light/5.png" alt="Image"></p>
+<p><img src="/images/thm-light/5.png" alt="Image"></p>
 <p>After about an hour of playing around with MySQL payloads with no success, I had to rethink about what kind of SQL that the box could be using. I then remembered the name of the room:</p>
 <p>Light, potentially could mean SQ<strong>Lite</strong>?</p>
 <p>So I began searching for payloads that would work for SQLite, and after playing around with the payloads a bit, I finally managed to begin cooking!</p>
-<h3 id="extracting-the-table-name">Extracting the table name:</h3>
+<h2 id="extracting-the-table-name">Extracting the table name:</h2>
 <p><code>smokey'Union Select tbl_name FROM sqlite_master WHERE type='table</code>
-<img src="/blog/thm-light/6.png" alt="Image"></p>
-<h3 id="extracting-the-columns-from-admintable">Extracting the columns from admintable:</h3>
+<img src="/images/thm-light/6.png" alt="Image"></p>
+<h2 id="extracting-the-columns-from-admintable">Extracting the columns from admintable:</h2>
 <p><code>smokey'Union Select sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='admintable</code>
-<img src="/blog/thm-light/7.png" alt="Image">
+<img src="/images/thm-light/7.png" alt="Image">
 Columns in admintable are &ldquo;username&rdquo; and &ldquo;password&rdquo;</p>
-<h3 id="extracting-username--password-from-admintable">Extracting username &amp; password from admintable</h3>
+<h2 id="extracting-username--password-from-admintable">Extracting username &amp; password from admintable</h2>
 <p>Extract username - <code>smokey'Union Select username FROM 'admintable</code></p>
 <p>Extract password - <code>smokey'Union Select password FROM 'admintable</code></p>
-<p><img src="/blog/thm-light/8.png" alt="Image"></p>
+<p><img src="/images/thm-light/8.png" alt="Image"></p>
 <p>These 2 payloads should help solve the 1st and 3rd question.</p>
-<h3 id="extracting-the-password-of-the-admin-user">Extracting the password of the admin user</h3>
+<h2 id="extracting-the-password-of-the-admin-user">Extracting the password of the admin user</h2>
 <p><code>smokey'Union Select password FROM 'admintable' WHERE username == 'INSERT_ADMIN_USER</code></p>
-<p><img src="/blog/thm-light/9.png" alt="Image"></p>
+<p><img src="/images/thm-light/9.png" alt="Image"></p>
 <p>This final payload should answer the 2nd question, and thus, you&rsquo;ve completed the box! Congrats!</p>
-<h2 id="conclusion">Conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 <p>That was a pretty cool box, I took a small break from CTFs after a while and it gave me a really good refresher on some concepts, especially with SQL injection. The room was quite challenging in terms of getting the correct payload, but once I remembered the name of the room I started cooking from there.</p>
 
             </div>
@@ -377,7 +407,7 @@ Columns in admintable are &ldquo;username&rdquo; and &ldquo;password&rdquo;</p>
     </g>
 </svg>
 </a>
-<a href="mailto:skid@420blaze.it" target="_blank" rel="noopener noreferrer me"
+<a href="mailto:t3chyy@waifu.club" target="_blank" rel="noopener noreferrer me"
     title="Email">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
@@ -404,7 +434,7 @@ Columns in admintable are &ldquo;username&rdquo; and &ldquo;password&rdquo;</p>
 </a>
 </div>
     <small class="footer_copyright">
-        © 2025 t3chyy.
+        © 2026 t3chyy.
         Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo</a>. <br>
         <p>Made with love &lt;3</p>
     </small>

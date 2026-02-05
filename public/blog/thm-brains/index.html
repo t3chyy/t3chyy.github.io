@@ -10,10 +10,10 @@
 <meta name="application-name" content="THM - Brains | t3chyy.cc" />
 <meta property="og:site_name" content="t3chyycc" />
 
-<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
-<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
-<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
-<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="description" content="The personal website/blog of t3chyy">
+<meta itemprop="description" content="The personal website/blog of t3chyy" />
+<meta property="og:description" content="The personal website/blog of t3chyy" />
+<meta name="twitter:description" content="The personal website/blog of t3chyy" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -25,15 +25,17 @@
 
 
 
-<meta name="generator" content="Hugo 0.141.0">
+<meta name="generator" content="Hugo 0.154.5">
 
     
     <meta property="og:url" content="http://localhost:1313/blog/thm-brains/">
   <meta property="og:site_name" content="t3chyy.cc">
   <meta property="og:title" content="THM - Brains">
-  <meta property="og:description" content="Room description -
+  <meta property="og:description" content="— Room Description —
 The city forgot to close it’s gate!
-Kudos to the room creators - Dex01, strategos &amp; l000g1c Writeup written by T3chyy
+Kudos to the room creators - Dex01, strategos &amp; l000g1c
+Writeup written by T3chyy
+—
 Red: Exploit the Server! Enumeration We start off with an Nmap scan and we find 3 ports open, 22 (SSH), 80 and 50000.
 Port 80 When we go to Port 80, we get a down for maintenance page. Usually when I see this I begin performing enumeration on the directories. Unfortunately, I couldn’t find any extra directories. There’s also nothing interesting in the source code either, so we move onto another port.">
   <meta property="og:locale" content="en_gb">
@@ -47,9 +49,11 @@ Port 80 When we go to Port 80, we get a down for maintenance page. Usually when 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="THM - Brains">
-  <meta name="twitter:description" content="Room description -
+  <meta name="twitter:description" content="— Room Description —
 The city forgot to close it’s gate!
-Kudos to the room creators - Dex01, strategos &amp; l000g1c Writeup written by T3chyy
+Kudos to the room creators - Dex01, strategos &amp; l000g1c
+Writeup written by T3chyy
+—
 Red: Exploit the Server! Enumeration We start off with an Nmap scan and we find 3 ports open, 22 (SSH), 80 and 50000.
 Port 80 When we go to Port 80, we get a down for maintenance page. Usually when I see this I begin performing enumeration on the directories. Unfortunately, I couldn’t find any extra directories. There’s also nothing interesting in the source code either, so we move onto another port.">
 
@@ -57,7 +61,7 @@ Port 80 When we go to Port 80, we get a down for maintenance page. Usually when 
     
 
     <link rel="canonical" href="http://localhost:1313/blog/thm-brains/">
-    <link href="/style.min.49f6b6cd116a399008dd390ee7508bf8a73e269dd2eefebf00d4d4a0941b58a5.css" rel="stylesheet">
+    <link href="/style.min.4837f1c139728f5339190a2950397b7c69b117d60f2a6bcc0c229aa364a18265.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
     
@@ -166,53 +170,84 @@ stroke-linejoin="round" class="feather feather-home">
                 
             </header>
             
+    
+        
+            
+        
+    
+    <details class="toc" open>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#red-exploit-the-server">Red: Exploit the Server!</a>
+      <ul>
+        <li><a href="#enumeration">Enumeration</a>
+          <ul>
+            <li><a href="#port-80">Port 80</a></li>
+            <li><a href="#port-50000">Port 50000</a></li>
+          </ul>
+        </li>
+        <li><a href="#exploitation">Exploitation</a></li>
+      </ul>
+    </li>
+    <li><a href="#blue-lets-investigate">Blue: Let&rsquo;s Investigate</a>
+      <ul>
+        <li><a href="#what-is-the-name-of-the-backdoor-user-which-was-created-on-the-server-after-exploitation">What is the name of the backdoor user which was created on the server after exploitation?</a></li>
+        <li><a href="#what-is-the-name-of-the-malicious-looking-package-installed-on-the-server">What is the name of the malicious-looking package installed on the server?</a></li>
+        <li><a href="#what-is-the-name-of-the-plugin-installed-on-the-server-after-successful-exploitation">What is the name of the plugin installed on the server after successful exploitation?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
             <div class="page-content">
-                <p><em>Room description -</em></p>
+                <p><strong>&mdash; Room Description &mdash;</strong></p>
 <p>The city forgot to close it&rsquo;s gate!</p>
-<p><em>Kudos to the room creators - Dex01, strategos &amp; l000g1c</em>
-<em>Writeup written by T3chyy</em></p>
+<p><em>Kudos to the room creators - Dex01, strategos &amp; l000g1c</em></p>
+<p><em>Writeup written by T3chyy</em></p>
+<p><strong>&mdash;</strong></p>
 <h1 id="red-exploit-the-server">Red: Exploit the Server!</h1>
 <h2 id="enumeration">Enumeration</h2>
 <p>We start off with an Nmap scan and we find 3 ports open, 22 (SSH), 80 and 50000.</p>
-<p><img src="/blog/thm-brains/1.png" alt="Image"></p>
+<p><img src="/images/thm-brains/1.png" alt="Image"></p>
 <h3 id="port-80">Port 80</h3>
 <p>When we go to Port 80, we get a down for maintenance page. Usually when I see this I begin performing enumeration on the directories. Unfortunately, I couldn&rsquo;t find any extra directories. There&rsquo;s also nothing interesting in the source code either, so we move onto another port.</p>
-<p><img src="/blog/thm-brains/2.png" alt="Image"></p>
+<p><img src="/images/thm-brains/2.png" alt="Image"></p>
 <h3 id="port-50000">Port 50000</h3>
 <p>We find a JetBrains TeamCity instance running on port 50000 running Version 2023.11.3.</p>
-<p><img src="/blog/thm-brains/3.png" alt="Image"></p>
+<p><img src="/images/thm-brains/3.png" alt="Image"></p>
 <p>We search on Google for known vulnerabilities, and it looks like we have 2:</p>
 <ul>
 <li>CVE-2024-27198</li>
 <li>CVE-2024-27199</li>
 </ul>
 <p>Both of these are authentication bypass vulnerabilities, the one we&rsquo;re gonna be abusing is <strong>CVE-2024-27198</strong>, which has a 9.8 CVSS score due to it being able to turn into unauthenticated RCE. This CVE also has it&rsquo;s own module built into Metasploit.</p>
-<p><img src="/blog/thm-brains/4.png" alt="Image"></p>
+<p><img src="/images/thm-brains/4.png" alt="Image"></p>
 <h2 id="exploitation">Exploitation</h2>
 <p>Launching Metasploit, we search for exploits that can be used against TeamCity, and we find that the third one has the closest disclosure date and CVE we&rsquo;re looking for, so we select it using <code>use 3</code></p>
-<p><img src="/blog/thm-brains/5.png" alt="Image"></p>
+<p><img src="/images/thm-brains/5.png" alt="Image"></p>
 <p>In our options for the exploit, we set the RHOST to be our target IP and the RPORT to 50000, the port that TeamCity is running on, and then we set the LHOST to the IP of the attacker machine. LPORT doesn&rsquo;t need to be changed.</p>
-<p><img src="/blog/thm-brains/6.png" alt="Image"></p>
+<p><img src="/images/thm-brains/6.png" alt="Image"></p>
 <p>With our fingers crossed, we run the exploit using <code>exploit</code> and&hellip; bam it worked!</p>
-<p><img src="/blog/thm-brains/7.png" alt="Image"></p>
+<p><img src="/images/thm-brains/7.png" alt="Image"></p>
 <p>We can now enter onto a shell using <code>shell</code> and then go to the <code>home</code> folder and cat the <code>flag.txt</code> that we need to submit.</p>
-<p><img src="/blog/thm-brains/8.png" alt="Image"></p>
+<p><img src="/images/thm-brains/8.png" alt="Image"></p>
 <h1 id="blue-lets-investigate">Blue: Let&rsquo;s Investigate</h1>
 <p>Now, we switch gears and we go to the blue side, where we use Splunk to inspect logs for suspicious activity and to answer the remaining questions.</p>
 <p>On Splunk, navigate to the <code>Search &amp; Reporting</code> section.</p>
-<h3 id="what-is-the-name-of-the-backdoor-user-which-was-created-on-the-server-after-exploitation">What is the name of the backdoor user which was created on the server after exploitation?</h3>
+<h2 id="what-is-the-name-of-the-backdoor-user-which-was-created-on-the-server-after-exploitation">What is the name of the backdoor user which was created on the server after exploitation?</h2>
 <p>Find this by searching the source for <code>/var/log/auth.log</code> for <code>useradd</code> using the following Splunk query: <code>source=&quot;/var/log/auth.log&quot; *useradd*</code></p>
-<p><img src="/blog/thm-brains/9.png" alt="Image"></p>
+<p><img src="/images/thm-brains/9.png" alt="Image"></p>
 <p>We should find the answer on the 2nd or 3rd rows. It is also here we determine that the date of compromise was July 4th, 2024.</p>
 <h2 id="what-is-the-name-of-the-malicious-looking-package-installed-on-the-server">What is the name of the malicious-looking package installed on the server?</h2>
 <p>I found the answer to this question by first searching on Google to find the location where package information is logged, which is <code>/var/log/dpkg.log</code>.</p>
-<p><img src="/blog/thm-brains/10.png" alt="Image"></p>
+<p><img src="/images/thm-brains/10.png" alt="Image"></p>
 <p>Searching with the query <code>source=&quot;/var/log/dpkg.log&quot;</code> and filtering the results to a date range between July 4th - July 5th 2024, we found the name of the malicious package:</p>
-<p><img src="/blog/thm-brains/11.png" alt="Image"></p>
+<p><img src="/images/thm-brains/11.png" alt="Image"></p>
 <h2 id="what-is-the-name-of-the-plugin-installed-on-the-server-after-successful-exploitation">What is the name of the plugin installed on the server after successful exploitation?</h2>
 <p>This question refers to our plugin that was created during exploitation to gain initial access to the box. We can find this in the TeamCity log located at <code>/opt/teamcity/TeamCity/logs/teamcity-activities.log</code>.</p>
 <p>Using the query <code>source=&quot;/opt/teamcity/TeamCity/logs/teamcity-activities.log&quot; &quot;plugin_uploaded&quot;</code>, We find the answer to our final question.</p>
-<p><img src="/blog/thm-brains/100.png" alt="Image"></p>
+<p><img src="/images/thm-brains/100.png" alt="Image"></p>
 
             </div>
         </article></main>
@@ -275,7 +310,7 @@ stroke-linejoin="round" class="feather feather-home">
     </g>
 </svg>
 </a>
-<a href="mailto:skid@420blaze.it" target="_blank" rel="noopener noreferrer me"
+<a href="mailto:t3chyy@waifu.club" target="_blank" rel="noopener noreferrer me"
     title="Email">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
@@ -302,7 +337,7 @@ stroke-linejoin="round" class="feather feather-home">
 </a>
 </div>
     <small class="footer_copyright">
-        © 2025 t3chyy.
+        © 2026 t3chyy.
         Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo</a>. <br>
         <p>Made with love &lt;3</p>
     </small>
